@@ -37,19 +37,17 @@ public class Categories extends GUI {
     protected GUIButton[] getButtons() {
         return new GUIButton[]{this.getButton()};
     }
-    
+
     private GUIButton getButton(){
-        SimpleItem item = new SimpleItem(XMaterial.PLAYER_HEAD)
-                .setSkin(SkinTexture.fromPlayer(target))
-                .setDisplayName("&a" + target.getName())
+        SimpleItem item = new SimpleItem(XMaterial.PAPER)
+                .setDisplayName("&aChat")
                 .setLore(
-                        "&7",
                         "&9Left Click &7Open Troll Selector",
                         "&9Right Click &7Open User Settings"
                 );
-        return new GUIButton(1, item, a->{
+        return new GUIButton(0, item, a->{
             a.getPlayer().sendMessage("Testing!");
         });
     }
-    
+
 }
