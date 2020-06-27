@@ -2,5 +2,5 @@
 # If you want to edit the translations copy this file and rename it
 # The file name format is 'language_COUNTRY.lang'
 # Also you can shearch about Java Locales
-TEST=Test
+Titles_Selector=&8Selector Main
 ONLYPLAYERS=This command is only to players!
