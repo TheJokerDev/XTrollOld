@@ -35,6 +35,10 @@ public class Categories extends GUI {
 
     @Override
     protected GUIButton[] getButtons() {
+        return new GUIButton[]{this.getButton()};
+    }
+    
+    private GUIButton getButton(){
         SimpleItem item = new SimpleItem(XMaterial.PLAYER_HEAD)
                 .setSkin(SkinTexture.fromPlayer(target))
                 .setDisplayName("&a" + target.getName())
@@ -43,7 +47,9 @@ public class Categories extends GUI {
                         "&9Left Click &7Open Troll Selector",
                         "&9Right Click &7Open User Settings"
                 );
-        new GUIButton(1, item);
-        return new GUIButton[]{new GUIButton(1, item, clickAction -> player.sendMessage("hola"))};
-}
+        return new GUIButton(1, item, a->{
+            a.getPlayer().sendMessage("Testing!");
+        });
+    }
+    
 }
