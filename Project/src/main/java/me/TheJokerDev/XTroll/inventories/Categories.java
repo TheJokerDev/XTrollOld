@@ -13,13 +13,9 @@ import xyz.theprogramsrc.supercoreapi.spigot.utils.skintexture.SkinTexture;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.xseries.XMaterial;
 
 public class Categories extends GUI {
-    private Player player = null;
-    private Player target = null;
 
     public Categories(SpigotPlugin plugin, Player player) {
         super(plugin, player);
-        player = player;
-        target = Main.target.get(player);
         this.open();
     }
 
@@ -35,18 +31,42 @@ public class Categories extends GUI {
 
     @Override
     protected GUIButton[] getButtons() {
-        return new GUIButton[]{this.getButton()};
+        return new GUIButton[]{this.getChatTrollsButton(), this.getWorldTrollsButton(), this.getToggleableTrollsButton()};
     }
 
-    private GUIButton getButton(){
+    private GUIButton getChatTrollsButton(){
         SimpleItem item = new SimpleItem(XMaterial.PAPER)
                 .setDisplayName("&aChat")
                 .setLore(
-                        "&9Left Click &7Open Troll Selector",
-                        "&9Right Click &7Open User Settings"
+                        "&7",
+                        "&7Chat trolls"
                 );
-        return new GUIButton(0, item, a->{
-            a.getPlayer().sendMessage("Testing!");
+        return new GUIButton(0, item, a-> {
+
+        });
+    }
+
+    private GUIButton getWorldTrollsButton(){
+        SimpleItem item = new SimpleItem(XMaterial.GRASS)
+                .setDisplayName("&aWorld")
+                .setLore(
+                        "&7",
+                        "&7World trolls"
+                );
+        return new GUIButton(1, item, a-> {
+
+        });
+    }
+
+    private GUIButton getToggleableTrollsButton(){
+        SimpleItem item = new SimpleItem(XMaterial.REDSTONE_TORCH)
+                .setDisplayName("&aToggle")
+                .setLore(
+                        "&7",
+                        "&7Toggleable trolls"
+                );
+        return new GUIButton(2, item, a-> {
+
         });
     }
 
