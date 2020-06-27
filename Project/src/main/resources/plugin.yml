@@ -1,0 +1,9 @@
+name: XTroll
+main: me.TheJokerDev.XTroll.Main
+version: 1.0-SNAPSHOT
+author: TheJokerDev
+commands:
+  troll:
+    usage: /troll
+    description: Base command.
+    aliases: [tr, xtroll, xtr]
