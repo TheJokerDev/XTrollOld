@@ -64,9 +64,14 @@ public class Selector extends BrowserGUI<Player> {
 
     @Override
     public GUIButton[] getButtons() {
-        List buttons = Utils.toList(super.getButtons());
-        buttons.add(getSettingsMenu());
-        return (GUIButton[]) buttons.toArray(new GUIButton[0]);
+        GUIButton[] defaultButtons = super.getButtons();
+        if(defaultButtons == null) defaultButtons = new GUIButton[0];
+        List<GUIButton> list = new ArrayList<>();
+        list.addAll(Utils.toList(defaultButtons));
+        list.add(getSettingsMenu());
+        GUIButton[] buttons = new GUIButton[list.size()];
+        buttons = list.toArray(buttons);
+        return buttons;
     }
 
     private GUIButton getSettingsMenu(){
