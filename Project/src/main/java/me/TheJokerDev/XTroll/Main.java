@@ -21,8 +21,12 @@ public class Main extends SpigotPlugin {
     public void onPluginEnable() {
         registerTranslation(LBase.class);
         //TranslationDownloader.downloadFromGitHub(Main.i, "TheJokerDev", "XTroll", "translations");
-        prefix = this.getSettingsStorage().getPrefix();
+        loadPrefix();
         getCommand("troll").setExecutor(new MainCommand());
+    }
+
+    public static void loadPrefix(){
+        prefix = Main.i.getSuperUtils().color(Main.i.getSettingsStorage().getPrefix())+" ";
     }
 
     @Override

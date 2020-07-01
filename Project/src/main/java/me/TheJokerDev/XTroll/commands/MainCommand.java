@@ -1,9 +1,11 @@
 package me.TheJokerDev.XTroll.commands;
 
 import me.TheJokerDev.XTroll.Main;
-import me.TheJokerDev.XTroll.inventories.Categories;
+import me.TheJokerDev.XTroll.inventories.AllInOne;
+import me.TheJokerDev.XTroll.inventories.categories.Categories;
 import me.TheJokerDev.XTroll.inventories.Selector;
 import me.TheJokerDev.XTroll.language.LBase;
+import me.TheJokerDev.XTroll.utils.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,7 +21,7 @@ public class MainCommand implements CommandExecutor {
         }
         Player p = (Player)commandSender;
         if (strings.length == 0) {
-            new Selector(p).open();
+            new Selector(p);
             return true;
         }
         if (strings.length == 1){
@@ -31,7 +33,15 @@ public class MainCommand implements CommandExecutor {
                     return true;
                 }
                 Main.target.put(p, t);
-                new Categories(Main.i, p);
+                if (SettingsManager.checkUserSettings(p)){
+                    if (SettingsManager.getGUIMode(p).equals("categories")){
+                        new Categories(Main.i, p);
+                        return true;
+                    }
+                    if (SettingsManager.getGUIMode(p).equals("allinone")){
+                        new AllInOne(Main.i, p);
+                    }
+                }
             }
         }
         return true;

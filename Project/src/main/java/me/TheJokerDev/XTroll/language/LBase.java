@@ -1,5 +1,6 @@
 package me.TheJokerDev.XTroll.language;
 
+import me.TheJokerDev.XTroll.Main;
 import xyz.theprogramsrc.supercoreapi.global.translations.Translation;
 import xyz.theprogramsrc.supercoreapi.global.translations.TranslationManager;
 import xyz.theprogramsrc.supercoreapi.global.translations.TranslationPack;
@@ -11,10 +12,26 @@ import java.util.stream.Collectors;
 
 public enum LBase implements TranslationPack {
 
-    Titles_Selector("Selector Main"),
+    Titles_Selector("&8Player Browser"),
+    Titles_Settings("&8Settings Menu"),
     Titles_Categories("&8Categories Menu"),
-    ONLYPLAYERS("This command is only to players!"),
+    Titles_InCategory("&8Categories | {category}"),
+    Titles_AllInOne("&8AllInOne Menu"),
+    Titles_PlayerSettings("&8Settings of {target}!"),
+    ONLYPLAYERS("&cThis command is only to players!"),
     Messages_PlayerNoExists("&cThis player not exists!"),
+    PlaceHolders_Toggle("Toggle"),
+    PlaceHolders_Chat("Chat"),
+    PlaceHolders_World("World"),
+    PlaceHolders_Creative("Creative"),
+    PlaceHolders_Survival("Survival"),
+    PlaceHolders_Adventure("Adventure"),
+    PlaceHolders_Spectator("Spectator"),
+    PlaceHolders_Operator("&a&lOperator"),
+    PlaceHolders_Troller("&a&lTroller"),
+    PlaceHolders_User("&8User"),
+    PlaceHolders_Categories("Categories"),
+    PlaceHolders_AllInOne("AllInOne")
     ;
 
     private TranslationManager manager;
@@ -51,7 +68,7 @@ public enum LBase implements TranslationPack {
 
     @Override
     public String toString() {
-        return this.get().translate();
+        return Main.i.getSuperUtils().color(this.get().translate());
     }
 
 }

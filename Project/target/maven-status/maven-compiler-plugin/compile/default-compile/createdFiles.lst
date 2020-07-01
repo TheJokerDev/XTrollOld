@@ -1,6 +1,14 @@
+me\TheJokerDev\XTroll\inventories\categories\Categories.class
+me\TheJokerDev\XTroll\utils\PlaceHolders.class
+me\TheJokerDev\XTroll\inventories\Selector.class
+me\TheJokerDev\XTroll\inventories\categories\ToggleCategory.class
+me\TheJokerDev\XTroll\inventories\PlayerSettings.class
+me\TheJokerDev\XTroll\inventories\Settings.class
+me\TheJokerDev\XTroll\utils\TrollArrays.class
+me\TheJokerDev\XTroll\inventories\AllInOne.class
 me\TheJokerDev\XTroll\language\LBase.class
 me\TheJokerDev\XTroll\commands\MainCommand.class
-me\TheJokerDev\XTroll\inventories\Categories.class
-me\TheJokerDev\XTroll\inventories\Selector.class
 me\TheJokerDev\XTroll\Main.class
-me\TheJokerDev\XTroll\language\Settings.class
+me\TheJokerDev\XTroll\utils\SettingsManager.class
+me\TheJokerDev\XTroll\utils\TrollItems.class
+me\TheJokerDev\XTroll\inventories\Settings$1.class
