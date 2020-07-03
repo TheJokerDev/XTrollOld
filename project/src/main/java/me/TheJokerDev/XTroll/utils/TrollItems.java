@@ -2,6 +2,7 @@ package me.TheJokerDev.XTroll.utils;
 
 import me.TheJokerDev.XTroll.Main;
 import me.TheJokerDev.XTroll.inventories.Selector;
+import me.TheJokerDev.XTroll.inventories.SelectorOld;
 import me.TheJokerDev.XTroll.inventories.categories.Categories;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.GUIButton;
 import xyz.theprogramsrc.supercoreapi.spigot.items.SimpleItem;
@@ -21,7 +22,7 @@ public class TrollItems {
         GUIButton returnitem = null;
         if (i2 == 0){
             returnitem =new GUIButton(slot, Main.i.getPreloadedItems().getBackItem(), a-> {
-                new Selector(a.getPlayer());
+                new SelectorOld().open(a.getPlayer());
             });
         }
         if (i2 == 1){

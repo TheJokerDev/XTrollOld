@@ -151,14 +151,12 @@ public class Settings extends GUI {
                 .setLore(
                         "&7Select an option above in",
                         "&7this menu :)")
-        .addEnchantment(Enchantment.KNOCKBACK, 1)
-                .setShowEnchantments(false)
-        .addFlag(ItemFlag.HIDE_ENCHANTS);
+        .addEnchantment(Enchantment.KNOCKBACK, 1).setGlowing(true);
         return new GUIButton(22, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {});
     }
     private GUIButton getBackItem(){
         return new GUIButton(36, Main.i.getPreloadedItems().getBackItem(), a-> {
-            new Selector(a.getPlayer());
+            new Selector(getPlayer());
         });
     }
 }

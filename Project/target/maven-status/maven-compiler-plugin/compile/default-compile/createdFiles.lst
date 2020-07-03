@@ -10,5 +10,6 @@ me\TheJokerDev\XTroll\language\LBase.class
 me\TheJokerDev\XTroll\commands\MainCommand.class
 me\TheJokerDev\XTroll\Main.class
 me\TheJokerDev\XTroll\utils\SettingsManager.class
+me\TheJokerDev\XTroll\inventories\SelectorOld.class
 me\TheJokerDev\XTroll\utils\TrollItems.class
 me\TheJokerDev\XTroll\inventories\Settings$1.class

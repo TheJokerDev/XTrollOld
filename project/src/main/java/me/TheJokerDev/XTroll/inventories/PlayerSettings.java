@@ -4,6 +4,7 @@ import me.TheJokerDev.XTroll.Main;
 import me.TheJokerDev.XTroll.inventories.categories.Categories;
 import me.TheJokerDev.XTroll.language.LBase;
 import me.TheJokerDev.XTroll.utils.PlaceHolders;
+import me.TheJokerDev.XTroll.utils.SettingsManager;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import xyz.theprogramsrc.supercoreapi.spigot.SpigotPlugin;
@@ -90,7 +91,15 @@ public class PlayerSettings extends GUI {
                         "&7troll to %target%."
                 );
         Player t = Main.target.get(getPlayer());
-        return new GUIButton(13, PlaceHolders.setPlaceHolders(item, t), a-> {new Categories(Main.i, getPlayer());});
+        return new GUIButton(13, PlaceHolders.setPlaceHolders(item, t), a-> {if (SettingsManager.checkUserSettings(getPlayer())){
+            if (SettingsManager.getGUIMode(getPlayer()).equals("categories")){
+                new Categories(Main.i, getPlayer());
+                return;
+            }
+            if (SettingsManager.getGUIMode(getPlayer()).equals("allinone")){
+                new AllInOne(Main.i, getPlayer());
+            }
+        }});
     }
     @Override
     public boolean centerTitle() {

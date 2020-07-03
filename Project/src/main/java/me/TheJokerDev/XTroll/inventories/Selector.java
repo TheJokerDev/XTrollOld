@@ -12,10 +12,13 @@ import xyz.theprogramsrc.supercoreapi.spigot.guis.BrowserGUI;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.GUIButton;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.action.ClickAction;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.action.ClickType;
+import xyz.theprogramsrc.supercoreapi.spigot.guis.events.GUIEvent;
+import xyz.theprogramsrc.supercoreapi.spigot.guis.events.GUIOpenEvent;
 import xyz.theprogramsrc.supercoreapi.spigot.items.SimpleItem;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.skintexture.SkinTexture;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.xseries.XMaterial;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Selector extends BrowserGUI<Player> {
@@ -46,7 +49,7 @@ public class Selector extends BrowserGUI<Player> {
         return new GUIButton(item).setAction(a->{
             if(a.getAction() == ClickType.RIGHT_CLICK){
                 Main.target.put(a.getPlayer(), player);
-                new PlayerSettings(Main.i, a.getPlayer());
+                new PlayerSettings(Main.i, getPlayer());
             }else{
                 Main.target.put(a.getPlayer(), player);
                 if (SettingsManager.checkUserSettings(getPlayer())){
@@ -61,12 +64,12 @@ public class Selector extends BrowserGUI<Player> {
             }
         });
     }
-
     @Override
-    public GUIButton[] getButtons() {
-        List buttons = Utils.toList(super.getButtons());
-        buttons.add(getSettingsMenu());
-        return (GUIButton[]) buttons.toArray(new GUIButton[0]);
+    public void onEvent(GUIEvent event){
+
+        if(event instanceof GUIOpenEvent){
+            this.addButton(getSettingsMenu());
+        }
     }
 
     private GUIButton getSettingsMenu(){
