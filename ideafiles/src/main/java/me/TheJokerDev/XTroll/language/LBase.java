@@ -31,14 +31,18 @@ public enum LBase implements TranslationPack {
     PlaceHolders_Troller("&a&lTroller"),
     PlaceHolders_User("&8User"),
     PlaceHolders_Categories("Categories"),
-    PlaceHolders_AllInOne("AllInOne")
+    PlaceHolders_AllInOne("AllInOne"),
+    PlaceHolders_Active("Active"),
+    PlaceHolders_Deactive("Deactive"),
+    Messages_FreezeActivated("&7Freeze activated for &e{target}&7."),
+    Messages_FreezeDeactivated("&7Freeze deactivated for &e{target}&7."),
     ;
 
     private TranslationManager manager;
     private final String content;
 
-    LBase(String content){
-        this.content = content;
+    LBase(String msg){
+        this.content = msg;
     }
 
     @Override

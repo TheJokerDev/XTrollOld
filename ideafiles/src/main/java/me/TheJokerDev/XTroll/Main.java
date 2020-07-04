@@ -1,6 +1,7 @@
 package me.TheJokerDev.XTroll;
 
 import me.TheJokerDev.XTroll.commands.MainCommand;
+import me.TheJokerDev.XTroll.events.PlayerEvents;
 import me.TheJokerDev.XTroll.inventories.SelectorOld;
 import me.TheJokerDev.XTroll.language.LBase;
 import org.bukkit.entity.Player;
@@ -24,6 +25,7 @@ public class Main extends SpigotPlugin {
         //TranslationDownloader.downloadFromGitHub(Main.i, "TheJokerDev", "XTroll", "translations");
         loadPrefix();
         listener(new SelectorOld());
+        listener(new PlayerEvents());
         getCommand("troll").setExecutor(new MainCommand());
     }
 

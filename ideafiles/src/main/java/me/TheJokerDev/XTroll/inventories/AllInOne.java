@@ -32,6 +32,6 @@ public class AllInOne extends GUI {
 
     @Override
     protected GUIButton[] getButtons() {
-        return new GUIButton[]{TrollItems.FreezePlayerItem(0, getPlayer())};
+        return new GUIButton[]{TrollItems.FreezePlayerItem(0, getPlayer()),TrollItems.getBackItem(48, 1)};
     }
 }

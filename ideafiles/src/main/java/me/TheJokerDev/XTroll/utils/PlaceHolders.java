@@ -30,6 +30,7 @@ public class PlaceHolders {
             lore.set(i, lore.get(i).replaceAll("ADVENTURE", LBase.PlaceHolders_Adventure.toString()));
             lore.set(i, lore.get(i).replaceAll("SPECTATOR", LBase.PlaceHolders_Spectator.toString()));
             lore.set(i, lore.get(i).replaceAll("%prefix", Main.i.getPluginName()));
+            lore.set(i, lore.get(i).replaceAll("%freeze-status%", checkToggle(t, TrollArrays.FreezeTroll)));
             lore.set(i, lore.get(i).replaceAll("%rank%", getRank(t)));
             lore.set(i, lore.get(i).replaceAll("%guimode%", SettingsManager.getGUIMode(t)));
             lore.set(i, lore.get(i).replaceAll("categories", LBase.PlaceHolders_Categories.toString()));
@@ -51,11 +52,21 @@ public class PlaceHolders {
                 .replaceAll("ADVENTURE", LBase.PlaceHolders_Adventure.toString())
                 .replaceAll("SPECTATOR", LBase.PlaceHolders_Spectator.toString())
                 .replaceAll("%prefix%", Main.i.getPluginName())
-                .replaceAll("%rank%", getRank(t));
+                .replaceAll("%rank%", getRank(t))
+                .replaceAll("%freeze-status%", checkToggle(t, TrollArrays.FreezeTroll));
         returnItem.setLore(lore);
         returnItem.setDisplayName(returnName);
 
         return returnItem;
+    }
+    public static String checkToggle(Player t, ArrayList array) {
+        String sm = null;
+        if (array.contains(t.getName())) {
+            sm = LBase.PlaceHolders_Active.toString();
+        } else {
+            sm = LBase.PlaceHolders_Deactive.toString();
+        }
+        return sm;
     }
     public static String getRank(Player p) {
         String sm;

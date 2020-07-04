@@ -78,7 +78,7 @@
         <dependency>
             <groupId>xyz.theprogramsrc</groupId>
             <artifactId>SuperCoreAPI</artifactId>
-            <version>3.6.0</version>
+            <version>3.6.1_BETA1</version>
         </dependency>
     </dependencies>
 </project>

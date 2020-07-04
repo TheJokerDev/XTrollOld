@@ -64,12 +64,10 @@ public class Selector extends BrowserGUI<Player> {
             }
         });
     }
-    @Override
-    public void onEvent(GUIEvent event){
 
-        if(event instanceof GUIOpenEvent){
-            this.addButton(getSettingsMenu());
-        }
+    @Override
+    protected GUIButton[] getExtraButtons() {
+        return new GUIButton[]{getSettingsMenu()};
     }
 
     private GUIButton getSettingsMenu(){

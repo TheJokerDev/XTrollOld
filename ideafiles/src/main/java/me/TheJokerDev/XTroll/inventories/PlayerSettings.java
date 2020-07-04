@@ -84,7 +84,7 @@ public class PlayerSettings extends GUI {
     }
     private GUIButton getMenu(){
         SimpleItem item = new SimpleItem(XMaterial.PLAYER_HEAD)
-                .setSkin(SkinTexture.fromMojang("Troll"))
+                .setSkin(SkinTexture.fromURL("http://textures.minecraft.net/texture/df7f40a86bee8e21a55340856a8621aca495673aa17bfde18d3b7aa61b42c"))
                 .setDisplayName("&cTroll Menu")
                 .setLore(
                         "&7Open the Troll GUI to",

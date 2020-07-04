@@ -4,6 +4,7 @@ import me.TheJokerDev.XTroll.Main;
 import me.TheJokerDev.XTroll.inventories.Selector;
 import me.TheJokerDev.XTroll.inventories.SelectorOld;
 import me.TheJokerDev.XTroll.inventories.categories.Categories;
+import me.TheJokerDev.XTroll.language.LBase;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.GUIButton;
 import xyz.theprogramsrc.supercoreapi.spigot.items.SimpleItem;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.xseries.XMaterial;
@@ -13,9 +14,18 @@ public class TrollItems {
     public static GUIButton FreezePlayerItem(Integer i, Player p){
         SimpleItem item = new SimpleItem(XMaterial.ICE)
                 .setDisplayName("&aFreeze Player")
-                .setLore("&7TestItem");
+                .setLore("&7Status: %freeze-status%");
         Player t = Main.target.get(p);
         return new GUIButton(i, PlaceHolders.setPlaceHolders(item, t), a-> {
+            if(!TrollArrays.FreezeTroll.contains(t.getName())){
+                TrollArrays.FreezeTroll.add(t.getName());
+                Main.i.getSuperUtils().sendMessage(t,Main.prefix+ LBase.Messages_FreezeActivated.options().placeholder("{target}", t.getName()).toString());
+                return;
+            } else {
+                TrollArrays.FreezeTroll.remove(t.getName());
+                Main.i.getSuperUtils().sendMessage(t,Main.prefix+ LBase.Messages_FreezeDeactivated.options().placeholder("{target}", t.getName()).toString());
+                return;
+            }
         });
     }
     public static GUIButton getBackItem(Integer slot, Integer i2){
