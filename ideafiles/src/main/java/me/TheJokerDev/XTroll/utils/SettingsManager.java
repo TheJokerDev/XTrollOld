@@ -1,11 +1,16 @@
 package me.TheJokerDev.XTroll.utils;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.storage.SpigotYMLConfig;
 import org.bukkit.entity.Player;
 
 import java.io.File;
 
 public class SettingsManager {
+    public static FileConfiguration getSettings(){
+        SpigotYMLConfig settings = new SpigotYMLConfig(new File("plugins/XTroll/Settings.yml"));
+        return settings.getConfig();
+    }
     public static Boolean checkUserSettings(Player p ){
         SpigotYMLConfig settings = new SpigotYMLConfig(new File("plugins/XTroll/Settings.yml"));
         Boolean returnbool;
@@ -31,6 +36,23 @@ public class SettingsManager {
             rtString = settings.getString("Users."+p.getName()+".guimode");
         }
         return rtString;
+    }
+    public static Boolean getRegeneratonBoolean(){
+        SpigotYMLConfig settings = new SpigotYMLConfig(new File("plugins/XTroll/Settings.yml"));
+        return settings.getBoolean("regenerationblocks.activated");
+    }
+    public static void changeRegenerationBoolean(){
+        SpigotYMLConfig settings = new SpigotYMLConfig(new File("plugins/XTroll/Settings.yml"));
+        if (settings.getBoolean("regenerationblocks.activated")){
+            settings.set("regenerationblocks.activated", false);
+            settings.save();
+            return;
+        }
+        if (!settings.getBoolean("regenerationblocks.activated")){
+            settings.set("regenerationblocks.activated", true);
+            settings.save();
+            return;
+        }
     }
     public static void changeGUIMode(Player p){
         SpigotYMLConfig settings = new SpigotYMLConfig(new File("plugins/XTroll/Settings.yml"));

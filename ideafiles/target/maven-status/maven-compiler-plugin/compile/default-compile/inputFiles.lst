@@ -1,10 +1,14 @@
+C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\CheckVictim.java
+C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\Cooldown.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\utils\PlaceHolders.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\utils\SettingsManager.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\categories\ToggleCategory.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\events\PlayerEvents.java
+C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\ControlTimer.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\Settings.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\language\LBase.java
-C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\SelectorOld.java
+C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\iListener.java
+C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\utils\IBlock.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\AllInOne.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\utils\TrollArrays.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\Selector.java
@@ -12,4 +16,5 @@ C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTr
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\utils\TrollItems.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\PlayerSettings.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\Main.java
+C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\utils\GeneralUtils.java
 C:\Users\toni_\Google Drive\JavaProjects\XTroll\src\main\java\me\TheJokerDev\XTroll\inventories\categories\Categories.java

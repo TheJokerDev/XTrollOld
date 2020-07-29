@@ -2,10 +2,10 @@ package me.TheJokerDev.XTroll.commands;
 
 import me.TheJokerDev.XTroll.Main;
 import me.TheJokerDev.XTroll.inventories.AllInOne;
-import me.TheJokerDev.XTroll.inventories.SelectorOld;
 import me.TheJokerDev.XTroll.inventories.categories.Categories;
 import me.TheJokerDev.XTroll.inventories.Selector;
 import me.TheJokerDev.XTroll.language.LBase;
+import me.TheJokerDev.XTroll.utils.GeneralUtils;
 import me.TheJokerDev.XTroll.utils.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -21,6 +21,10 @@ public class MainCommand implements CommandExecutor {
             return true;
         }
         Player p = (Player)commandSender;
+        if (!GeneralUtils.checkPermissions(p, "troll")){
+            p.sendMessage(Main.prefix+LBase.Messages_noPermissions.toString());
+            return true;
+        }
         if (strings.length == 0) {
             new Selector(p);
             return true;

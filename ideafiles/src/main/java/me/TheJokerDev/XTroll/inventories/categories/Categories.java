@@ -2,7 +2,6 @@ package me.TheJokerDev.XTroll.inventories.categories;
 
 import me.TheJokerDev.XTroll.Main;
 import me.TheJokerDev.XTroll.inventories.Selector;
-import me.TheJokerDev.XTroll.inventories.SelectorOld;
 import me.TheJokerDev.XTroll.language.LBase;
 import org.bukkit.entity.Player;
 import xyz.theprogramsrc.supercoreapi.spigot.SpigotPlugin;
@@ -30,7 +29,7 @@ public class Categories extends GUI {
     }
 
     @Override
-    public boolean centerTitle() {
+    public boolean isTitleCentered() {
         return false;
     }
 

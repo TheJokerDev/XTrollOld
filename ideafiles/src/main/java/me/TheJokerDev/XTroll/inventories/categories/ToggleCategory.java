@@ -20,7 +20,7 @@ public class ToggleCategory extends GUI {
         return Main.prefix + LBase.Titles_InCategory.options().placeholder("{category}", "Toggle").toString(); }
 
     @Override
-    public boolean centerTitle() {
+    public boolean isTitleCentered() {
         return false;
     }
 

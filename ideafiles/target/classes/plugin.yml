@@ -3,8 +3,14 @@ main: me.TheJokerDev.XTroll.Main
 version: 1.0-SNAPSHOT
 api-version: '1.13'
 author: TheJokerDev
+depend:
+  - LibsDisguises
+  - ProtocolLib
 commands:
   troll:
     usage: /troll
     description: Base command.
     aliases: [tr, xtroll, xtr]
+permissions:
+  xtroll.troll:
+    description: This permissions allow to open the XTroll GUI.

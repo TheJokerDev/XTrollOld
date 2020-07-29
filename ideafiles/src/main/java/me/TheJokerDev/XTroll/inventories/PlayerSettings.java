@@ -5,6 +5,7 @@ import me.TheJokerDev.XTroll.inventories.categories.Categories;
 import me.TheJokerDev.XTroll.language.LBase;
 import me.TheJokerDev.XTroll.utils.PlaceHolders;
 import me.TheJokerDev.XTroll.utils.SettingsManager;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import xyz.theprogramsrc.supercoreapi.spigot.SpigotPlugin;
@@ -101,10 +102,12 @@ public class PlayerSettings extends GUI {
             }
         }});
     }
+
     @Override
-    public boolean centerTitle() {
+    public boolean isTitleCentered() {
         return false;
     }
+
     private GUIButton getBackItem(){
         return new GUIButton(27, Main.i.getPreloadedItems().getBackItem(), a-> {
             new Selector(a.getPlayer());

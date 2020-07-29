@@ -8,7 +8,7 @@ import me.TheJokerDev.XTroll.utils.TrollArrays;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.inventory.ItemFlag;
+import xyz.theprogramsrc.supercoreapi.global.utils.Utils;
 import xyz.theprogramsrc.supercoreapi.spigot.SpigotPlugin;
 import xyz.theprogramsrc.supercoreapi.spigot.dialog.Dialog;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.GUI;
@@ -17,7 +17,7 @@ import xyz.theprogramsrc.supercoreapi.spigot.guis.objects.GUIRows;
 import xyz.theprogramsrc.supercoreapi.spigot.items.SimpleItem;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.skintexture.SkinTexture;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.xseries.XMaterial;
-
+@SuppressWarnings("all")
 public class Settings extends GUI {
     public Settings(SpigotPlugin plugin, Player player) {
         super(plugin, player);
@@ -40,7 +40,7 @@ public class Settings extends GUI {
         return GUIRows.FIVE;
     }
     @Override
-    public boolean centerTitle() {
+    public boolean isTitleCentered() {
         return false;
     }
 
@@ -57,13 +57,25 @@ public class Settings extends GUI {
         if (TrollArrays.SettingsPage.get(getPlayer())==1){
             buttons= new GUIButton[]{
                     pluginSettingsItem(),
+                    playerSettingsItem(),
                     changePrefixItem(),
+                    changeMessagesItem(),
+                    changeRegenerationItem(),
                     getBackItem()};
         }
         if (TrollArrays.SettingsPage.get(getPlayer())==2){
             buttons= new GUIButton[]{
                     pluginSettingsItem(),
+                    playerSettingsItem(),
                     changeGUIMode(),
+                    getBackItem()};
+        }
+        if (TrollArrays.SettingsPage.get(getPlayer())==3){
+            buttons= new GUIButton[]{
+                    pluginSettingsItem(),
+                    playerSettingsItem(),
+                    changeBanMessageItem(),
+                    changeFakeOPMessageItem(),
                     getBackItem()};
         }
 
@@ -82,6 +94,77 @@ public class Settings extends GUI {
             this.open();
         });
     }
+    private GUIButton changeBanMessageItem(){
+        SimpleItem item = new SimpleItem(XMaterial.WHITE_STAINED_GLASS_PANE)
+                .setDisplayName("&9Ban Message")
+                .setLore(
+                        "&7Click to change this message",
+                        "&7",
+                        "&7Actual: {message}"
+                ).addPlaceholder("{message}", Utils.ct(SettingsManager.getSettings().getString("Trolls.KickMessage")));
+        return new GUIButton(21, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {
+            new Dialog(Main.i, a.getPlayer()) {
+
+                @Override
+                public String getTitle() {
+                    return "&3Messages";
+                }
+
+                @Override
+                public String getSubtitle() {
+                    return "&7Change the message of Ban Troll";
+                }
+
+                @Override
+                public String getActionbar() {
+                    return "&7Actual: {Message}";
+                }
+                @Override
+                public boolean onResult(String playerInput) {
+                    Main.i.getSettingsStorage().getConfig().set("Trolls.KickMessage", playerInput);
+                    Main.i.getSettingsStorage().getConfig().save();
+                    return true;
+                }
+            }.addPlaceholder("{Message}", Utils.ct(SettingsManager.getSettings().getString("Trolls.KickMessage"))).setRecall(p->{
+                this.open();
+            });
+        });
+    }
+    private GUIButton changeFakeOPMessageItem(){
+        SimpleItem item = new SimpleItem(XMaterial.WHITE_STAINED_GLASS_PANE)
+                .setDisplayName("&9Fake OP Message")
+                .setLore(
+                        "&7Click to change this message",
+                        "&7",
+                        "&7Actual: {message}"
+                ).addPlaceholder("{message}", Utils.ct(SettingsManager.getSettings().getString("Trolls.FakeOPMessage")));
+        return new GUIButton(22, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {
+            new Dialog(Main.i, a.getPlayer()) {
+
+                @Override
+                public String getTitle() {
+                    return "&3Messages";
+                }
+                @Override
+                public String getSubtitle() {
+                    return "&7Change the message of FakeOP Troll";
+                }
+
+                @Override
+                public String getActionbar() {
+                    return "&7Actual: {Message}";
+                }
+                @Override
+                public boolean onResult(String playerInput) {
+                    Main.i.getSettingsStorage().getConfig().set("Trolls.FakeOPMessage", playerInput);
+                    Main.i.getSettingsStorage().getConfig().save();
+                    return true;
+                }
+            }.addPlaceholder("{Message}", Utils.ct(SettingsManager.getSettings().getString("Trolls.FakeOPMessage"))).setRecall(p->{
+                this.open();
+            });
+        });
+    }
     private GUIButton changePrefixItem(){
         SimpleItem item = new SimpleItem(XMaterial.BOOK)
                 .setDisplayName("&9Prefix")
@@ -90,7 +173,7 @@ public class Settings extends GUI {
                         "&7",
                         "&7Actual: {prefix}"
                 ).addPlaceholder("{prefix}", Main.prefix);
-        return new GUIButton(22, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {
+        return new GUIButton(21, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {
             new Dialog(Main.i, a.getPlayer()) {
 
                 @Override
@@ -118,6 +201,31 @@ public class Settings extends GUI {
                 this.open();
             });
     });
+    }
+    private GUIButton changeRegenerationItem(){
+        SimpleItem item = new SimpleItem(XMaterial.REDSTONE)
+                .setDisplayName("&9Regeneration Blocks")
+                .setLore(
+                        "&7Click to change the state",
+                        "&7of the regeneration system",
+                        "&7",
+                        "&7Actual: %regeneration-boolean%"
+                );
+        return new GUIButton(23, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {
+            SettingsManager.changeRegenerationBoolean();
+        });
+    }
+    private GUIButton changeMessagesItem(){
+        SimpleItem item = new SimpleItem(XMaterial.PAPER)
+                .setDisplayName("&9Change messages")
+                .setLore(
+                        "&7Click to change the",
+                        "&7messages of Trolls"
+                );
+        return new GUIButton(22, PlaceHolders.setPlaceHolders(item, getPlayer()), a-> {
+            TrollArrays.SettingsPage.put(getPlayer(), 3);
+            this.open();
+        });
     }
     private GUIButton changeGUIMode(){
         SimpleItem item = new SimpleItem(XMaterial.REDSTONE_TORCH)

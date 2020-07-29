@@ -19,6 +19,7 @@ public class PlaceHolders {
             if (Main.target.get(t) != null) {
                 lore.set(i, lore.get(i).replaceAll("%troller%", Main.target.get(t).getName()));
             }
+            lore.set(i, lore.get(i).replaceAll("%regeneration-boolean%", String.valueOf(SettingsManager.getRegeneratonBoolean())));
             lore.set(i, lore.get(i).replaceAll("%health%", String.valueOf(Integer.valueOf((int) t.getHealth()))));
             lore.set(i, lore.get(i).replaceAll("%max-health%", String.valueOf(Integer.valueOf((int) t.getMaxHealth()))));
             lore.set(i, lore.get(i).replaceAll("%gamemode%", String.valueOf(t.getGameMode())));
@@ -31,10 +32,18 @@ public class PlaceHolders {
             lore.set(i, lore.get(i).replaceAll("SPECTATOR", LBase.PlaceHolders_Spectator.toString()));
             lore.set(i, lore.get(i).replaceAll("%prefix", Main.i.getPluginName()));
             lore.set(i, lore.get(i).replaceAll("%freeze-status%", checkToggle(t, TrollArrays.FreezeTroll)));
+            lore.set(i, lore.get(i).replaceAll("%freezeall-status%", checkToggle(t, TrollArrays.FreezeAllTroll)));
+            lore.set(i, lore.get(i).replaceAll("%hideplayer-status%", checkToggle(t, TrollArrays.HidePlayer)));
+            lore.set(i, lore.get(i).replaceAll("%infiniteinv-status%", checkToggle(t, TrollArrays.infiniteInventoryTroll)));
+            lore.set(i, lore.get(i).replaceAll("%fakelag-status%", checkToggle(t, TrollArrays.fakeLagTroll)));
+            lore.set(i, lore.get(i).replaceAll("%facepalm-status%", checkToggle(t, TrollArrays.FacepalmTroll)));
+            lore.set(i, lore.get(i).replaceAll("%control-status%", checkToggle(t, TrollArrays.controlPlayerTroll)));
             lore.set(i, lore.get(i).replaceAll("%rank%", getRank(t)));
             lore.set(i, lore.get(i).replaceAll("%guimode%", SettingsManager.getGUIMode(t)));
             lore.set(i, lore.get(i).replaceAll("categories", LBase.PlaceHolders_Categories.toString()));
             lore.set(i, lore.get(i).replaceAll("allinone", LBase.PlaceHolders_AllInOne.toString()));
+            lore.set(i, lore.get(i).replaceAll("true", LBase.PlaceHolders_Active.toString()));
+            lore.set(i, lore.get(i).replaceAll("false", LBase.PlaceHolders_Deactive.toString()));
         }
         String returnName = item.getDisplayName();
         returnName.replaceAll("%target%", t.getName());

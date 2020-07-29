@@ -72,13 +72,27 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.libraryaddict.disguise</groupId>
+            <artifactId>LibsDisguises</artifactId>
+            <version>10.0.15</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/externallibraries/LibsDisguises-10.0.15-Premium.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>4.6.0-SNAPSHOT-b472</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/externallibraries/ProtocolLib.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>xyz.theprogramsrc</groupId>
             <artifactId>SuperCoreAPI</artifactId>
-            <version>3.6.1_BETA1</version>
+            <version>4.0.0</version>
         </dependency>
     </dependencies>
 </project>

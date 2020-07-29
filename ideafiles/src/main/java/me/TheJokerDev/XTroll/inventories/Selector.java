@@ -7,7 +7,6 @@ import me.TheJokerDev.XTroll.utils.PlaceHolders;
 import me.TheJokerDev.XTroll.utils.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import xyz.theprogramsrc.supercoreapi.global.utils.Utils;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.BrowserGUI;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.GUIButton;
 import xyz.theprogramsrc.supercoreapi.spigot.guis.action.ClickAction;
@@ -17,10 +16,7 @@ import xyz.theprogramsrc.supercoreapi.spigot.guis.events.GUIOpenEvent;
 import xyz.theprogramsrc.supercoreapi.spigot.items.SimpleItem;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.skintexture.SkinTexture;
 import xyz.theprogramsrc.supercoreapi.spigot.utils.xseries.XMaterial;
-
-import java.util.ArrayList;
-import java.util.List;
-
+@SuppressWarnings("all")
 public class Selector extends BrowserGUI<Player> {
     public Selector(Player player){
         super(Main.i, player); // Inicializa el GUI
@@ -33,7 +29,7 @@ public class Selector extends BrowserGUI<Player> {
     }
 
     @Override
-    public boolean centerTitle() {
+    public boolean isTitleCentered() {
         return false;
     }
 
@@ -66,8 +62,10 @@ public class Selector extends BrowserGUI<Player> {
     }
 
     @Override
-    protected GUIButton[] getExtraButtons() {
-        return new GUIButton[]{getSettingsMenu()};
+    public void onEvent(GUIEvent event) {
+        if (event instanceof GUIOpenEvent){
+            this.addButton(getSettingsMenu());
+        }
     }
 
     private GUIButton getSettingsMenu(){
